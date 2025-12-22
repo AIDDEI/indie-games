@@ -2,7 +2,7 @@
 - Installed Laravel Herd and Laravel Breeze and created a new Laravel project.
 - Changed the .env file to adjust the app name and app URL.
 - Made an ERD:
-![ERD.png](\images\ERD.png)
+![ERD.png](images/ERD.png)
 - Created user stories:
     1. As a visitor, I want to register and log in, so that I can access user-only functionality.
     2. As a user, I want to access protected pages, so that non-authenticated users cannot use restricted features.
