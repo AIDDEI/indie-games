@@ -2,7 +2,7 @@
 - Installed Laravel Herd and Laravel Breeze and created a new Laravel project.
 - Changed the .env file to adjust the app name and app URL.
 - Made an ERD:
-![ERD.png](images/ERD.png)
+![ERD.png](images/ERD2.png)
 - Created user stories:
     1. As a visitor, I want to register and log in, so that I can access user-only functionality.
     2. As a user, I want to access protected pages, so that non-authenticated users cannot use restricted features.
@@ -60,4 +60,4 @@
     - 03-01-2026
         - Polish and test
 - Made a changelog.
-- Made migrations based on my ERD.
+- Made migrations based on my ERD (used [Laravel Docs](https://laravel.com/docs/12.x/migrations) and [Laracasts](https://laracasts.com/discuss/channels/laravel/update-table-from-migrate) (specifically for how to name a migration which updates an existing table)).
