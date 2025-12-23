@@ -1,3 +1,16 @@
+## Tuesday 23-12-2025
+- Created models (and changed the User model) for all database tables: Role, Genre, Game, Review and Favorite.
+    - Used documentation:
+        - [Eloquent](https://laravel.com/docs/12.x/eloquent)
+        - [Eloquent Relationships](https://laravel.com/docs/12.x/eloquent-relationships)
+- Added the Admin and User roles and created two first users (one admin and one user) through database seeding
+    - Used documentation:
+        - [Database: Seeding](https://laravel.com/docs/12.x/seeding)
+- Added a standard user role to the registering users. Now when you register your account, you get assigned a user role.
+- Added some extra password validation rules when registering. Now you have to create a password with a minimum of six characters and you must use at least one uppercase character, one number and one special character.
+    - Used documentation:
+        - [Validation: validating passwords](https://laravel.com/docs/12.x/validation#validating-passwords)
+
 ## Monday 22-12-2025
 - Installed Laravel Herd and Laravel Breeze and created a new Laravel project.
 - Changed the .env file to adjust the app name and app URL.
