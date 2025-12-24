@@ -1,3 +1,20 @@
+## Wednesday 24-12-2025
+- Added a list of genres via my new GenreSeeder (using a foreach loop)
+- Changed the 'name' row to unique inside the 'genres' table using a new migration
+- Changed the app layout and updated to home page (welcome and dashboard) to match my page subject
+- Created the games CRUD: GameController with views (and new game form component)
+    - Used documentation:
+        - [Controllers](https://laravel.com/docs/12.x/controllers)
+        - [DigitalOcean CRUD](https://www.digitalocean.com/community/tutorials/simple-laravel-crud-with-resource-controllers)
+        - [Views](https://laravel.com/docs/12.x/views)
+        - [Database: Pagination](https://laravel.com/docs/12.x/pagination)
+        - [Blade: Components](https://laravel.com/docs/8.x/blade#components)
+- Updated route middleware for the game pages
+    - Used documentation:
+        - [Routing](https://laravel.com/docs/12.x/routing#route-group-middleware)
+        - [Middleware](https://laravel.com/docs/12.x/middleware#assigning-middleware-to-routes)
+- Added an 'add game to favorites'-functionality (with a button that only appears while logged in)
+
 ## Tuesday 23-12-2025
 - Created models (and changed the User model) for all database tables: Role, Genre, Game, Review and Favorite.
     - Used documentation:
