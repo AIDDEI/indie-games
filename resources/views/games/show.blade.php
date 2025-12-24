@@ -22,6 +22,19 @@
             <p class="mt-2 text-sm text-gray-500">
                 Uploaded by {{ $game->user->name }}
             </p>
+
+            @auth
+                <form action="{{ route('games.favorite.toggle', $game) }}" method="POST" class="mt-4">
+                    @csrf
+                    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">
+                        @if(auth()->user()->favorites()->where('game_id', $game->id)->exists())
+                            Remove from Favorites
+                        @else
+                            Add to Favorites
+                        @endif
+                    </button>
+                </form>
+            @endauth
         </div>
     </div>
 </x-app-layout>
