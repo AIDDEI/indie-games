@@ -11,12 +11,10 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <a href="#"
-                        class="flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium">Games</a>
-                    <a href="#"
-                        class="flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium">Genres</a>
-                    <a href="#"
-                        class="flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium">Browse</a>
+                    <a href="{{ route('games.index') }}"
+                        class="flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                        Games
+                    </a>
                 </div>
             </div>
 
@@ -24,9 +22,13 @@
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 @guest
                     <a href="{{ route('login') }}"
-                        class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium">Login</a>
+                        class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                        Login
+                    </a>
                     <a href="{{ route('register') }}"
-                        class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium ml-4">Register</a>
+                        class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium ml-4">
+                        Register
+                    </a>
                 @else
                     <div class="ml-3 relative">
                         <x-dropdown align="right" width="48">
