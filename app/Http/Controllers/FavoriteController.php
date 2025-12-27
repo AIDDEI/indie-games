@@ -6,14 +6,13 @@ use App\Models\Favorite;
 use App\Models\Game;
 use App\Models\Genre;
 use Illuminate\Http\Request;
-use Illuminate\Database\Eloquent\Builder;
 
 class FavoriteController extends Controller
 {
     public function index()
     {
         $games = Game::with('genres')
-            ->whereHas('favorites', function (Builder $query) {
+            ->whereHas('favorites', function ($query) {
                 $query->where('user_id', auth()->id());
             })
             ->latest()

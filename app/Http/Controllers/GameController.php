@@ -11,6 +11,12 @@ class GameController extends Controller
     public function index(Request $request)
     {
         $games = Game::with('genres')
+            ->when($request->filled('search'), function ($query) use ($request) {
+                $query->where(function ($q) use ($request) {
+                    $q->where('title', 'like', '%' . $request->search . '%')
+                        ->orWhere('developer', 'like', '%' . $request->search . '%');
+                });
+            })
             ->when($request->filled('genres'), function ($query) use ($request) {
                 $query->whereHas('genres', function ($q) use ($request) {
                     $q->whereIn('genres.id', $request->genres);

@@ -4,7 +4,13 @@
     <h1 class="text-3xl font-bold mb-6">Browse Games</h1>
 
     <form method="GET" action="{{ route('games.index') }}" class="mb-6">
+        <div class="mb-4">
+            <input type="text" name="search" value="{{ request('search') }}"
+                placeholder="Search by title or developer..." class="w-full border rounded p-2">
+        </div>
+
         <h2 class="font-semibold mb-2">Filter by genre</h2>
+
         <div class="flex flex-wrap gap-4">
             @foreach ($genres as $genre)
                 <label class="flex items-center gap-2">
