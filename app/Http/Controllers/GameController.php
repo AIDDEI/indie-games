@@ -8,13 +8,21 @@ use Illuminate\Http\Request;
 
 class GameController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $games = Game::with('genres')
+            ->when($request->filled('genres'), function ($query) use ($request) {
+                $query->whereHas('genres', function ($q) use ($request) {
+                    $q->whereIn('genres.id', $request->genres);
+                });
+            })
             ->latest()
-            ->paginate(12);
+            ->paginate(12)
+            ->withQueryString();
 
-        return view('games.index', compact('games'));
+        $genres = Genre::orderBy('name')->get();
+
+        return view('games.index', compact('games', 'genres'));
     }
 
     public function create()

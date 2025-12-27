@@ -3,6 +3,26 @@
 
     <h1 class="text-3xl font-bold mb-6">Browse Games</h1>
 
+    <form method="GET" action="{{ route('games.index') }}" class="mb-6">
+        <h2 class="font-semibold mb-2">Filter by genre</h2>
+        <div class="flex flex-wrap gap-4">
+            @foreach ($genres as $genre)
+                <label class="flex items-center gap-2">
+                    <input type="checkbox" name="genres[]" value="{{ $genre->id }}" @checked(in_array($genre->id, request('genres', [])))>
+                    <span>{{ $genre->name }}</span>
+                </label>
+            @endforeach
+        </div>
+        <div class="mt-4 flex gap-4">
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">
+                Apply filters
+            </button>
+            <a href="{{ route('games.index') }}" class="text-gray-600 underline">
+                Reset
+            </a>
+        </div>
+    </form>
+
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         @foreach ($games as $game)
             <div class="bg-white dark:bg-gray-800 rounded shadow p-4">
