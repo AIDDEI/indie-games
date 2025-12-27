@@ -1,3 +1,18 @@
+## Saturday 27-12-2025
+- Added the navigation to creating a new game in the navigation bar
+- Added buttons for editing your games and deleting your games on the detailpage
+- Added a view for favorite games and added the route to the navigation bar
+    - Used documentation:
+        - [Eloquent Relationships](https://laravel.com/docs/12.x/eloquent-relationships#querying-relationship-existence)
+- Added genre filters on the browse games page
+    - Used documentation:
+        - [Requests](https://laravel.com/docs/12.x/requests#retrieving-input)
+        - [Database Pagination](https://laravel.com/docs/12.x/pagination)
+        - [Blade](https://laravel.com/docs/12.x/blade#additional-attributes)
+- Added text searching on the browse games page. This also works together with the genre filters.
+    - Used documentation:
+        - [Stack Overflow](https://stackoverflow.com/questions/70736335/laravel-search-and-filter)
+
 ## Wednesday 24-12-2025
 - Added a list of genres via my new GenreSeeder (using a foreach loop)
 - Changed the 'name' row to unique inside the 'genres' table using a new migration
