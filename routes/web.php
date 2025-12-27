@@ -19,6 +19,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('games', GameController::class)->except(['index', 'show']);
     Route::post('/games/{game}/favorite', [FavoriteController::class, 'toggle'])->name('games.favorite.toggle');
+    Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorites.index');
 });
 
 Route::resource('games', GameController::class)->only(['index', 'show']);

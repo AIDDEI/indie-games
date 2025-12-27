@@ -34,6 +34,22 @@
                         @endif
                     </button>
                 </form>
+
+                @if(auth()->id() === $game->user_id)
+                    <a href="{{ route('games.edit', $game) }}"
+                        class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded">
+                        Edit Game
+                    </a>
+
+                    <form action="{{ route('games.destroy', $game) }}" method="POST"
+                        onsubmit="return confirm('Are you sure you want to delete this game? This action cannot be undone!');">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="mt-4 inline-block bg-red-600 text-white px-4 py-2 rounded">
+                            Delete Game
+                        </button>
+                    </form>
+                @endif
             @endauth
         </div>
     </div>

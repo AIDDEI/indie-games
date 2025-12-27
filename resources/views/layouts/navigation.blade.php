@@ -16,6 +16,20 @@
                         Games
                     </a>
                 </div>
+                @auth
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <a href="{{ route('games.create') }}"
+                            class="flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                            Add Game
+                        </a>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <a href="{{ route('favorites.index') }}"
+                            class="flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                            Favorites
+                        </a>
+                    </div>
+                @endauth
             </div>
 
             <!-- Right side -->
@@ -42,10 +56,6 @@
                             <x-slot name="content">
                                 <x-dropdown-link href="#">
                                     My Profile
-                                </x-dropdown-link>
-
-                                <x-dropdown-link href="#">
-                                    Favorites
                                 </x-dropdown-link>
 
                                 <x-dropdown-link href="{{ route('logout') }}"
