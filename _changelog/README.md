@@ -1,3 +1,20 @@
+## Sunday 28-12-2025
+- Added the profile settings page to the navigation bar.
+- Change the password requirements for updating your password to match the requirements for creating a password (while registering)
+- Added a game policy for editing and deleting games. Only owners of the game can edit it and delete it.
+    - Used documentation:
+        - [Authorization: Writing Policies](https://laravel.com/docs/12.x/authorization#writing-policies)
+- Created new middleware for admins. Specific pages are only for admins.
+    - Used documentation:
+        - [Middleware](https://laravel.com/docs/12.x/middleware)
+- Created a new route group for admin pages using my own admin middleware.
+    - Used documentation:
+        - [Routing: Route Groups](https://laravel.com/docs/12.x/routing#route-groups)
+- Added an admin users page, where admins can change user roles and delete users
+- Added an admin games page, where admins can delete games (even if the game doesn't belong to them)
+- Added an admin genres page, where admins can create new genres and delete genres
+- Added an admin roles page, where admins can create new roles and delete roles
+
 ## Saturday 27-12-2025
 - Added the navigation to creating a new game in the navigation bar
 - Added buttons for editing your games and deleting your games on the detailpage
