@@ -29,6 +29,32 @@
                             Favorites
                         </a>
                     </div>
+                    @if(auth()->user()->role && auth()->user()->role->name === 'admin')
+                        <div class="hidden sm:flex sm:items-center sm:ml-6">
+                            <x-dropdown align="left" width="48">
+                                <x-slot name="trigger">
+                                    <button
+                                        class="flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                                        Admin
+                                    </button>
+                                </x-slot>
+                                <x-slot name="content">
+                                    <x-dropdown-link href="{{ route('admin.users.index') }}">
+                                        Users
+                                    </x-dropdown-link>
+                                    <x-dropdown-link href="{{ route('admin.games.index') }}">
+                                        Games
+                                    </x-dropdown-link>
+                                    <x-dropdown-link href="{{ route('admin.genres.index') }}">
+                                        Genres
+                                    </x-dropdown-link>
+                                    <x-dropdown-link href="{{ route('admin.roles.index') }}">
+                                        Roles
+                                    </x-dropdown-link>
+                                </x-slot>
+                            </x-dropdown>
+                        </div>
+                    @endif
                 @endauth
             </div>
 
