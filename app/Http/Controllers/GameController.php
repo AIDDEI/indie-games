@@ -70,7 +70,7 @@ class GameController extends Controller
 
     public function edit(Game $game)
     {
-        abort_unless($game->user_id === auth()->id(), 403);
+        $this->authorize('update', $game);
 
         $genres = Genre::orderBy('name')->get();
         $gameGenres = $game->genres->pluck('id')->toArray();
@@ -80,7 +80,7 @@ class GameController extends Controller
 
     public function update(Request $request, Game $game)
     {
-        abort_unless($game->user_id === auth()->id(), 403);
+        $this->authorize('update', $game);
 
         $validated = $request->validate([
             'title' => 'required|string|max:255',
@@ -107,7 +107,7 @@ class GameController extends Controller
 
     public function destroy(Game $game)
     {
-        abort_unless($game->user_id === auth()->id(), 403);
+        $this->authorize('delete', $game);
 
         $game->delete();
 
