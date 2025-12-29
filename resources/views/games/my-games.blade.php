@@ -43,7 +43,7 @@
                                     @method('PATCH')
                                     <button type="submit" class="text-white px-4 py-2 rounded
                                             {{ $game->is_active ? 'bg-green-600' : 'bg-gray-500' }}">
-                                        {{ $game->is_active ? 'Active' : 'Deactive' }}
+                                        {{ $game->is_active ? 'Active' : 'Inactive' }}
                                     </button>
                                 </form>
                             </td>

@@ -19,6 +19,8 @@
                         <th class="px-6 py-3 border">Owner</th>
                         <th class="px-6 py-3 border">Developer</th>
                         <th class="px-6 py-3 border">Created At</th>
+                        <th class="px-6 py-3 border">Details</th>
+                        <th class="px-6 py-3 border">Status</th>
                         <th class="px-6 py-3 border">Actions</th>
                     </tr>
                 </thead>
@@ -30,6 +32,17 @@
                             <td class="px-6 py-2 border">{{ $game->user->name }}</td>
                             <td class="px-6 py-2 border">{{ $game->developer }}</td>
                             <td class="px-6 py-2 border">{{ $game->created_at->format('d-m-Y') }}</td>
+                            <td class="px-6 py-2 border text-center">
+                                <a href="{{ route('games.show', $game) }}" class="bg-blue-600 text-white px-4 py-2 rounded">
+                                    View
+                                </a>
+                            </td>
+                            <td class="px-6 py-2 border text-center">
+                                <span class="inline-block text-white px-4 py-2 rounded
+                                    {{ $game->is_active ? 'bg-green-600' : 'bg-gray-500' }}">
+                                    {{ $game->is_active ? 'Active' : 'Inactive' }}
+                                </span>
+                            </td>
                             <td class="px-6 py-2 border text-center">
                                 <form action="{{ route('admin.games.destroy', $game) }}" method="POST"
                                     onsubmit="return confirm('Are you sure you want to delete this game? This action cannot be undone!');">
