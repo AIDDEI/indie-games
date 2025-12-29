@@ -1,3 +1,11 @@
+## Monday 29-12-2025
+- Added a 'My Games'-page where users have an overview of all games they added to the website.
+- Added an activate-toggle functionality for games. Users can make their games inactive or active via the Active/Inactive button on the 'My Games'-page. When a game is not active, only the owner of the game and administrators can view the game.
+    - Used documentation:
+        - [Eloquent Mutators](https://laravel.com/docs/12.x/eloquent-mutators#attribute-casting)
+- Updated the admin games page with new rows: details and status.
+- Typo fix on the Inactive button.
+
 ## Sunday 28-12-2025
 - Added the profile settings page to the navigation bar.
 - Change the password requirements for updating your password to match the requirements for creating a password (while registering)
