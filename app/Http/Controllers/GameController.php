@@ -113,4 +113,10 @@ class GameController extends Controller
 
         return redirect()->route('games.index');
     }
+
+    public function myGames()
+    {
+        $games = Game::where('user_id', auth()->id())->get();
+        return view('games.my-games', compact('games'));
+    }
 }

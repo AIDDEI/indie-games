@@ -84,6 +84,10 @@
                                     My Profile
                                 </x-dropdown-link>
 
+                                <x-dropdown-link href="{{ route('games.my-games') }}">
+                                    My Games
+                                </x-dropdown-link>
+
                                 <x-dropdown-link href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     Logout
