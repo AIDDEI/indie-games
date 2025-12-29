@@ -16,7 +16,15 @@ class Game extends Model
         'release_date',
         'cover_image',
         'user_id',
+        'is_active',
     ];
+
+    protected function casts()
+    {
+        return [
+            'is_active' => 'boolean',
+        ];
+    }
 
     public function user(): BelongsTo
     {

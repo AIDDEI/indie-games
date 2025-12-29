@@ -11,6 +11,7 @@ class GameController extends Controller
     public function index(Request $request)
     {
         $games = Game::with('genres')
+            ->where('is_active', true)
             ->when($request->filled('search'), function ($query) use ($request) {
                 $query->where(function ($q) use ($request) {
                     $q->where('title', 'like', '%' . $request->search . '%')
@@ -63,6 +64,8 @@ class GameController extends Controller
 
     public function show(Game $game)
     {
+        $this->authorize('view', $game);
+
         $game->load(['user', 'genres', 'reviews']);
 
         return view('games.show', compact('game'));
@@ -118,5 +121,16 @@ class GameController extends Controller
     {
         $games = Game::where('user_id', auth()->id())->get();
         return view('games.my-games', compact('games'));
+    }
+
+    public function toggleActive(Game $game)
+    {
+        $this->authorize('update', $game);
+
+        $game->update([
+            'is_active' => !$game->is_active,
+        ]);
+
+        return back()->with('success', 'Game status updated.');
     }
 }

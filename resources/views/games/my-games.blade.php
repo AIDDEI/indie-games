@@ -18,6 +18,7 @@
                         <th class="px-6 py-3 border">Developer</th>
                         <th class="px-6 py-3 border">Details</th>
                         <th class="px-6 py-3 border">Edit</th>
+                        <th class="px-6 py-3 border">Status</th>
                         <th class="px-6 py-3 border">Delete</th>
                     </tr>
                 </thead>
@@ -35,6 +36,16 @@
                                 <a href="{{ route('games.edit', $game) }}" class="bg-blue-600 text-white px-4 py-2 rounded">
                                     Edit
                                 </a>
+                            </td>
+                            <td class="px-6 py-2 border text-center">
+                                <form action="{{ route('games.toggleActive', $game) }}" method="POST">
+                                    @csrf
+                                    @method('PATCH')
+                                    <button type="submit" class="text-white px-4 py-2 rounded
+                                            {{ $game->is_active ? 'bg-green-600' : 'bg-gray-500' }}">
+                                        {{ $game->is_active ? 'Active' : 'Deactive' }}
+                                    </button>
+                                </form>
                             </td>
                             <td class="px-6 py-2 border text-center">
                                 <form action="{{ route('games.destroy', $game) }}" method="POST"
