@@ -1,3 +1,11 @@
+## Tuesday 30-12-2025
+- Updated the reviews table: changed the rating from an integer to a numeric (so that you can use decimals for your rating) and added uniqueness to the table, so that you cannot have multiple reviews for the same game per user.
+    - Used documentation:
+        - [Database: Migrations](https://laravel.com/docs/12.x/migrations#modifying-columns)
+- Added a review controller (CRUD) for storing, updating and deleting reviews (as the showing part is done in the game controller (in the show)).
+- Added a new review policy for editing and deleting reviews. Only owners of the review can edit it. The owner, admins and owner of the game can delete reviews.
+- Added a review overview per game in the game details, together with a review form (also for editing) and delete button.
+
 ## Monday 29-12-2025
 - Added a 'My Games'-page where users have an overview of all games they added to the website.
 - Added an activate-toggle functionality for games. Users can make their games inactive or active via the Active/Inactive button on the 'My Games'-page. When a game is not active, only the owner of the game and administrators can view the game.
