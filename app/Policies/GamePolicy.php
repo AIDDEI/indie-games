@@ -19,7 +19,7 @@ class GamePolicy
             return true;
         }
 
-        if ($user && ($user->id === $game->user_id || $user->role->name === 'admin')) {
+        if ($user && ($game->user_id === $user->id || $user->role->name === 'admin')) {
             return true;
         }
 

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminGameController;
 use App\Http\Controllers\Admin\GenreController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GameController;
@@ -29,6 +30,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/games/{game}/toggle-active', [GameController::class, 'toggleActive'])->name('games.toggleActive');
     Route::post('/games/{game}/favorite', [FavoriteController::class, 'toggle'])->name('games.favorite.toggle');
     Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorites.index');
+    Route::post('/games/{game}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+    Route::patch('/reviews/{review}', [ReviewController::class, 'update'])->name('reviews.update');
+    Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
 });
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
