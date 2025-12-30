@@ -66,9 +66,13 @@ class GameController extends Controller
     {
         $this->authorize('view', $game);
 
-        $game->load(['user', 'genres', 'reviews']);
+        $game->load(['user', 'genres', 'reviews.user']);
 
-        return view('games.show', compact('game'));
+        $hasReviewed = auth()->check()
+            ? $game->reviews->where('user_id', auth()->id())->isNotEmpty()
+            : false;
+
+        return view('games.show', compact('game', 'hasReviewed'));
     }
 
     public function edit(Game $game)

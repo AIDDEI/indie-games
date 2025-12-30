@@ -55,4 +55,14 @@
             @endauth
         </div>
     </div>
+
+    @if(session('success'))
+        <div class="mt-6 mb-4 rounded bg-green-100 text-green-700 px-4 py-3">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @include('reviews._list', ['reviews' => $game->reviews])
+
+    @include('reviews._form', ['game' => $game, 'hasReviewed' => $hasReviewed])
 </x-app-layout>
