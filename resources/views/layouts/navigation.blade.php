@@ -18,10 +18,21 @@
                 </div>
                 @auth
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <a href="{{ route('games.create') }}"
-                            class="flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                            Add Game
-                        </a>
+                        @can('create', App\Models\Game::class)
+                            <a href="{{ route('games.create') }}"
+                                class="flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                                Add Game
+                            </a>
+                        @endcan
+
+                        @cannot('create', App\Models\Game::class)
+                            <button
+                                type="button"
+                                onclick="alert('You must write at least 5 reviews before you can add a game.')"
+                                class="flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                                Add Game
+                            </button>
+                        @endcannot
                     </div>
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <a href="{{ route('favorites.index') }}"
