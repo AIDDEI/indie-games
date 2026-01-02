@@ -34,6 +34,8 @@ class GameController extends Controller
 
     public function create()
     {
+        $this->authorize('create', Game::class);
+
         $genres = Genre::orderBy('name')->get();
         return view('games.create', compact('genres'));
     }
