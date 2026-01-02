@@ -1,3 +1,8 @@
+## Friday 01-02-2026
+- Added deeper validation to creating games. Before you can create a new game, you first have to write at least 5 reviews for other games on the website. This validation is added to the game policy I already had. In the new creating policy also admins are ruled out of this validation. This means admins always can create new games without having to write 5 reviews.
+- Added visual feedback for the deeper validation. When you cannot create a new game, a pop-up will appear with the text that you have to write 5 reviews first. When you do have enough reviews, the create page is opened.
+- Updated the page titles and headers on the dashboard, edit profile, create game and edit game pages.
+
 ## Tuesday 30-12-2025
 - Updated the reviews table: changed the rating from an integer to a numeric (so that you can use decimals for your rating) and added uniqueness to the table, so that you cannot have multiple reviews for the same game per user.
     - Used documentation:
@@ -97,7 +102,7 @@
     13. As a user, I want to combine search and filters, so that I can find specific games more efficiently.
     14. As an administrator, I want to access an admin-only section, so that I can manage games and users.
     15. As an administrator, I want to delete games uploaded by users, so that inappropriate content can be removed.
-    16. As an administrator, I want users to be able to submit a review only after logging in on at least five different days, so that spam and low-effort reviews are reduced.
+    16. As an administrator, I want users to be able to submit a game only after reviewing at least five different games, so that spam and low-effort games are reduced.
     17. As an administrator, I want to see an overview dashboard, so that I can quickly monitor platform activity.
     18. As an administrator, I do not want visitors to be able to access any user or admin functionality without authentication.
     19. As a user, I want to edit my profile information, so that I can keep my personal data up to date.
@@ -132,7 +137,7 @@
     - 30-12-2025
         - Games reviews CRUD
     - 31-12-2025
-        - Deeper validation (5 days login) -> Eloquent
+        - Deeper validation (5 reviews before adding) -> Eloquent
     - 02-01-2026
         - Security (OWASP top 10)
     - 03-01-2026
