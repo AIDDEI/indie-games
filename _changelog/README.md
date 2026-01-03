@@ -1,4 +1,39 @@
-## Friday 01-02-2026
+## Saturday 03-01-2026
+- OWASP Top 10
+    1. Broken Access Control:
+        - Checked if routes have the right middleware.
+        - Checked if POSTs, PUTs and DELETEs have access control and updated where neccessary.
+        - Checked if admin pages where accessible by non-admins, which wasn't the case because of the admin middleware (also checked on force browsing in general).
+        - Checked for hidden fields in forms, which I didn't have.
+    2. Cryptographic Failures
+        - Only applies on passwords on my site, which Laravel hashes with Bcrypt and Argon2 which are secure modern algorithms (via [Hashing](https://laravel.com/docs/12.x/hashing)).
+    3. Injection
+        - Via $request->validate every user input is checked on what the input should be, like string or numeric but also the maximum amount of words and such.
+        - Checked for SQL queries in my code, which I didn't have.
+        - Indicated in my models which fields can be modified by input (protected $fillable).
+        - All forms make use of CSRF Protection which protects against forged POSTs, PATCHs en DELETEs (via [CSFR Protection(https://laravel.com/docs/12.x/csrf)]).
+    4. Insecure Design
+        - I've thought about protective measures beforehand and added them when I needed them, for example:
+            - Game ownership and actions via policies;
+            - Review ownership and actions via policies;
+            - User roles and new middleware for the admin role.
+    5. Security Misconfiguration
+        - Checked for unused routes and such, which I didn't have.
+        - Checked for overly informative error messages, which I didn't find.
+    6. Vulnerable and Outdated Components
+        - Checked for updates for installed components, but I installed the latest versions already.
+    7. Identification and Authentication Failures
+        - The application does permits default, weak and well-known passwords, as I used a lot of them for different accounts I created. This is something I do have to work on if I want to put the website live. But for now, this isn't really an issue.
+    8. Software and Data Integrity Failures
+        - I didn't use a CI/CD pipeline.
+        - I don't make use of auto-updates.
+    9. Security Logging and Monitoring Failures
+        - Laravel uses the Monolog library by default for logging (via [Logging](https://laravel.com/docs/12.x/logging)).
+        - Logging is only saved locally, as it's in the .git-ignore file.
+    10. Server Side Request Forgery
+        - My application does not fetch or request remote resources based on user-supplied URLs.
+
+## Friday 02-01-2026
 - Added deeper validation to creating games. Before you can create a new game, you first have to write at least 5 reviews for other games on the website. This validation is added to the game policy I already had. In the new creating policy also admins are ruled out of this validation. This means admins always can create new games without having to write 5 reviews.
 - Added visual feedback for the deeper validation. When you cannot create a new game, a pop-up will appear with the text that you have to write 5 reviews first. When you do have enough reviews, the create page is opened.
 - Updated the page titles and headers on the dashboard, edit profile, create game and edit game pages.
