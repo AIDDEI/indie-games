@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('games', GameController::class)->only(['index', 'show']);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -48,7 +50,5 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::post('/roles', [RoleController::class, 'store'])->name('roles.store');
     Route::delete('/roles/{role}', [RoleController::class, 'destroy'])->name('roles.destroy');
 });
-
-Route::resource('games', GameController::class)->only(['index', 'show']);
 
 require __DIR__ . '/auth.php';
