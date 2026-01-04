@@ -45,7 +45,7 @@ class MoreUserSeeder extends Seeder
         foreach ($names as $name) {
             $email = Str::of($name)->lower()->replace(' ', '')->append('@example.com');
 
-            $password = $this->generateStrongPassword();
+            $password = Str::password(12);
 
             User::firstOrCreate(
                 ['email' => $email],
@@ -56,18 +56,5 @@ class MoreUserSeeder extends Seeder
                 ]
             );
         }
-    }
-
-    private function generateStrongPassword()
-    {
-        $lower = Str::lower(Str::random(2));
-        $upper = Str::upper(Str::random(2));
-        $numbers = rand(10, 99);
-        $symbols = ['!', '@', '#', '$', '%', '&', '*'];
-        $symbol = $symbols[array_rand($symbols)];
-
-        $password = str_shuffle($lower . $upper . $numbers . $symbol);
-
-        return $password;
     }
 }

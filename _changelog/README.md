@@ -1,3 +1,20 @@
+## Sunday 04-01-2026
+- Fix two routing bugs. One in the routing itself and one in the game policy.
+- Updated image styling and added more text on the welcome page.
+- Added some image logic in the game controller:
+    1. Added the posibility to not upload an image on the edit page. In that case the old image will still be used.
+    2. Added delete logic for the images inside the public folder (via [File Storage](https://laravel.com/docs/12.x/filesystem#deleting-files)).
+- Made new seeders to seed the database:
+    1. New users seeder (used [Random Name Generator](https://www.behindthename.com/random/random.php) for generating random names);
+    2. Games seeder (used [ChatGPT](https://chatgpt.com/share/695aaf3d-2d20-800c-b7b9-d095db3d4c9d) for game titles, descriptions and developers);
+    3. Gamegenres seeder;
+    4. Reviews seeder.
+    - Used documentation:
+        - [Laravel Strings](https://laravel.com/docs/12.x/strings)
+            - [Lower](https://laravel.com/docs/12.x/strings#method-str-lower)
+            - [Replace](https://laravel.com/docs/12.x/strings#method-str-replace)
+            - [Password](https://laravel.com/docs/12.x/strings#method-str-password)
+
 ## Saturday 03-01-2026
 - OWASP Top 10
     1. Broken Access Control:
