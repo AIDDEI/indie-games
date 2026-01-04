@@ -18,7 +18,11 @@ class DatabaseSeeder extends Seeder
         $this->call([
                 // RoleSeeder::class,
                 // UserSeeder::class,
-            GenreSeeder::class,
+                // GenreSeeder::class,
+                // MoreUserSeeder::class,
+                // GameSeeder::class,
+                // GameGenreSeeder::class,
+            ReviewSeeder::class,
         ]);
     }
 }
