@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Game;
 use App\Models\Genre;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class GameController extends Controller
@@ -98,13 +99,19 @@ class GameController extends Controller
             'description' => 'required',
             'developer' => 'required|string|max:255',
             'release_date' => 'required|date',
-            'cover_image' => 'required|image',
+            'cover_image' => 'nullable|image',
             'genres' => 'array',
             'genres.*' => 'exists:genres,id',
         ]);
 
         if ($request->hasFile('cover_image')) {
+            if ($game->cover_image) {
+                Storage::disk('public')->delete($game->cover_image);
+            }
+
             $validated['cover_image'] = $request->file('cover_image')->store('games', 'public');
+        } else {
+            unset($validated['cover_image']);
         }
 
         $game->update($validated);
@@ -119,6 +126,10 @@ class GameController extends Controller
     public function destroy(Game $game)
     {
         $this->authorize('delete', $game);
+
+        if ($game->cover_image) {
+            Storage::disk('public')->delete($game->cover_image);
+        }
 
         $game->delete();
 

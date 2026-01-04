@@ -1,4 +1,4 @@
-<h2 class="text-2xl font-bold mb-4">Reviews</h2>
+<h2 class="text-2xl font-bold mt-6 mb-2">Reviews</h2>
 
 @forelse ($reviews as $review)
     <div class="mb-4 p-4 border rounded bg-gray-50 dark:bg-gray-800">
