@@ -22,7 +22,7 @@ class GamePolicy
         return $game->user_id === $user->id;
     }
 
-    public function view(User $user, Game $game)
+    public function view(?User $user, Game $game)
     {
         if ($game->is_active) {
             return true;
